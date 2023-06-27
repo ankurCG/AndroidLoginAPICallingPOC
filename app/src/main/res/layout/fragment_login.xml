@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/loginFragmentContainer"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".LoginFragment">
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+       <TextView
+           android:id="@+id/textView"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Welcome!"
+           android:textColor="@color/black"
+           android:textSize="30sp"
+           android:textStyle="bold"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintVertical_bias=".09" />
+
+       <EditText
+           android:id="@+id/editMailId"
+           android:layout_width="260dp"
+           android:layout_height="wrap_content"
+           android:hint="Email ID"
+           android:textSize="20sp"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintLeft_toLeftOf="parent"
+           app:layout_constraintRight_toRightOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintVertical_bias=".4"/>
+       <com.google.android.material.textfield.TextInputLayout
+           android:id="@+id/textInputLayout"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:gravity="center"
+           app:passwordToggleEnabled="true"
+           tools:layout_editor_absoluteX="0dp"
+           tools:layout_editor_absoluteY="0dp">
+
+           <EditText
+               android:id="@+id/editPassword"
+               android:layout_width="260dp"
+               android:layout_height="55dp"
+               android:hint="Password"
+               android:inputType="textPassword"
+               android:textSize="20sp"
+               android:autofillHints="Password" />
+       </com.google.android.material.textfield.TextInputLayout>
+
+       <CheckBox
+           android:id="@+id/checkBox"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/terms"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintVertical_bias=".6" />
+
+       <Button
+           android:id="@+id/btnLogin"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Log in"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintLeft_toLeftOf="parent"
+           app:layout_constraintRight_toRightOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintVertical_bias=".7" />
+
+       <TextView
+           android:id="@+id/notRegistered"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Not registered?"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintHorizontal_bias=".3"
+           app:layout_constraintLeft_toLeftOf="parent"
+           app:layout_constraintRight_toRightOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintVertical_bias=".8" />
+
+       <TextView
+           android:id="@+id/createAccount"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Create an account"
+           android:textColor="#248908"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintHorizontal_bias=".68"
+           app:layout_constraintLeft_toLeftOf="parent"
+           app:layout_constraintRight_toRightOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintVertical_bias=".8" />
+
+
+
+
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
