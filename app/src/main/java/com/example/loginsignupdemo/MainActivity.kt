@@ -4,7 +4,9 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+//import com.example.loginsignupdemo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
 
         fragmentReplace(LoginFragment())

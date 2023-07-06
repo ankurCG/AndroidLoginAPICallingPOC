@@ -13,18 +13,72 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.FrameLayout
 import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
+import com.example.loginsignupdemo.databinding.FragmentSignUpBinding
+import com.example.loginsignupdemo.ui.auth.AuthListner
+import com.example.loginsignupdemo.ui.auth.AuthViewModel
+import com.example.loginsignupdemo.ui.auth.signUpViewModel
 
 
-class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
+class SignUpFragment : Fragment(R.layout.fragment_sign_up),AuthListner{
 
     private lateinit var db: SQLiteDatabase//
     lateinit var databaseHelper : DataBaseHelper
+    //val viewModel : signUpViewModel by viewModel
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+
+/*
+        //viewModel.authListner = this
+        binding.btnSignup.setOnClickListener {
+            val fname = binding.edtFirstName.text.toString()
+            val lname = binding.edtLastName.text.toString()
+            val email = binding.edtMail.text.toString()
+            val password = binding.edtPass.text.toString()
+            viewModel.signup(email,password,fname,lname)
+        }
+
+
+        if( viewModel.onSignUpButtonClicked()){
+           Toast.makeText(activity,"Toast testing success",Toast.LENGTH_SHORT).show()
+       }else{
+           Toast.makeText(activity,"Toast testing failure",Toast.LENGTH_SHORT).show()
+
+       }
+
+         */
+
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //val binding:FragmentSignUpBinding = DataBindingUtil.setContentView(requireActivity(),R.layout.fragment_sign_up)
+        //val viewModel = androidx.lifecycle.ViewModelProviders.of(this).get(signUpViewModel::class.java)
+        //val viewModel : signUpViewModel by viewModel()
+        //binding.viewModelSignup = viewModel
+
+
+
+/*
+        val binding: FragmentLoginBinding = DataBindingUtil.setContentView(requireActivity(),R.layout.fragment_sign_up)
+        val viewModel = androidx.lifecycle.ViewModelProviders.of(this).get(AuthViewModel::class.java)
+        binding.viewModel = viewModel
+
+        viewModel.authListner = this
+
+ */
+
         databaseHelper = DataBaseHelper(requireContext())
+
+        /*
 
         val edtFirstName: EditText = view.findViewById(R.id.edtFirstName)
         val edtLastName: EditText = view.findViewById(R.id.edtLastName)
@@ -77,6 +131,8 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
             fragmentReplace(LoginFragment())
         }
 
+         */
+
 
 
     }
@@ -85,11 +141,24 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
         super.onDestroy()
         databaseHelper.close()
     }
-        fun fragmentReplace(fragment: Fragment){
+
+     override fun onStarted() {
+        TODO("Not yet implemented")
+    }
+
+     override fun onSuccess() {
+        TODO("Not yet implemented")
+    }
+
+     override fun onFailure() {
+        TODO("Not yet implemented")
+    }
+
+     override fun fragmentReplace(fragment: Fragment){
             val fragmentManager = activity?.supportFragmentManager
-            val f1 : FrameLayout? = view?.findViewById(R.id.signupFragmentContainer)
+            //val f1 : FrameLayout? = view?.findViewById(R.id.loginFragmentContainer)
             val fragmentTransaction = fragmentManager?.beginTransaction()
-            fragmentTransaction?.replace(R.id.signupFragmentContainer,fragment)
+            fragmentTransaction?.replace(R.id.loginFragmentContainer,fragment)
             fragmentTransaction?.commit()
         }
 }
