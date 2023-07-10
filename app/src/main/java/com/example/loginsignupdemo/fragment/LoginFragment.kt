@@ -1,18 +1,17 @@
-package com.example.loginsignupdemo
+package com.example.loginsignupdemo.fragment
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
 import android.database.Cursor
 import android.os.Bundle
-import android.util.AttributeSet
 import android.util.Log
+import android.util.Patterns
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.*
-import androidx.fragment.app.FragmentActivity
+import com.example.loginsignupdemo.utils.DataBaseHelper
+import com.example.loginsignupdemo.R
+import com.example.loginsignupdemo.View.NextActivity
 
 class LoginFragment :Fragment(R.layout.fragment_login) {
 
@@ -47,19 +46,30 @@ class LoginFragment :Fragment(R.layout.fragment_login) {
                 if (strEmail.isNotEmpty() && strPassword.isNotEmpty()) {
                     val mailCursor: Cursor? = dataBaseHelper.getCursor(strEmail)
 
+                    if (!Patterns.EMAIL_ADDRESS.matcher(strEmail).matches()){
+                        Toast.makeText(activity, "Invalid Email", Toast.LENGTH_SHORT).show()
+                    }
+
                     Log.i("STR mail",strEmail)
 
                     if (mailCursor != null && mailCursor.count > 0) {
                         mailCursor.moveToFirst()
-                        val savedPassword = mailCursor.getString(mailCursor.getColumnIndex(DataBaseHelper.COLUMN_PASSWORD))
+                        val savedPassword = mailCursor.getString(mailCursor.getColumnIndex(
+                            DataBaseHelper.COLUMN_PASSWORD
+                        ))
                         if (strPassword == savedPassword) {
                             Log.i("START",strPassword)
                             Toast.makeText(activity,"Login Successful",Toast.LENGTH_SHORT).show()
                             startActivity(Intent(activity, NextActivity::class.java))
                         } else {
-                            Toast.makeText(activity, "Invalid Credentials !", Toast.LENGTH_SHORT)
+                            Toast.makeText(activity, "Password Incorrect !", Toast.LENGTH_SHORT)
                                 .show()
                         }
+                    } else{
+                        Toast.makeText(activity, "Email ID Not found !", Toast.LENGTH_SHORT)
+                            .show()
+                        Toast.makeText(activity, "Please Sign-Up before Login !", Toast.LENGTH_SHORT)
+                            .show()
                     }
 
                 }

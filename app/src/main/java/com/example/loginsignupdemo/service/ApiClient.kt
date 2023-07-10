@@ -1,4 +1,4 @@
-package com.example.loginsignupdemo
+package com.example.loginsignupdemo.service
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

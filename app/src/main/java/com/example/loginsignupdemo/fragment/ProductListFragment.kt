@@ -1,18 +1,18 @@
-package com.example.loginsignupdemo
+package com.example.loginsignupdemo.fragment
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Button
+import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.loginsignupdemo.*
+import com.example.loginsignupdemo.adapter.productAdapter
+import com.example.loginsignupdemo.service.ApiClient
+import com.example.loginsignupdemo.service.ApiService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -36,6 +36,7 @@ class ProductListFragment : Fragment() {
 
         recyclerView = view.findViewById(R.id.recyclerView)
         val gridLayout= GridLayoutManager(activity,2, LinearLayoutManager.VERTICAL,false)
+        //val staggeredLayout = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
         recyclerView.layoutManager = gridLayout
         recyclerView.setHasFixedSize(true)
 
@@ -58,7 +59,6 @@ class ProductListFragment : Fragment() {
                     if (products != null) {
                         Toast.makeText(activity, "API call success ", Toast.LENGTH_SHORT)
                                     .show()
-
                                 prodAdapter.productList = products
                                 prodAdapter.notifyDataSetChanged()
 
@@ -79,13 +79,8 @@ class ProductListFragment : Fragment() {
 
         recyclerView.adapter = prodAdapter
 
-       val btn: Button = view.findViewById(R.id.btnLogOut)
-        btn.setOnClickListener {
-            val i = Intent(activity,MainActivity::class.java)
-            startActivity(i)
-        }
-
     }
+
 /*
     private fun onProductClick(product: ProductList) {
         val productDetailsFragment = ProductDetailsFragment.newInstance(product)
