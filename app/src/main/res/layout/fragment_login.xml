@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:id="@+id/loginFragmentContainer"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".LoginFragment">
+    tools:context=".fragment.LoginFragment">
 
    <androidx.constraintlayout.widget.ConstraintLayout
        android:layout_width="match_parent"
@@ -71,6 +71,7 @@
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:text="Log in"
+           android:backgroundTint="@color/black"
            app:layout_constraintBottom_toBottomOf="parent"
            app:layout_constraintLeft_toLeftOf="parent"
            app:layout_constraintRight_toRightOf="parent"
@@ -83,7 +84,6 @@
            android:layout_height="wrap_content"
            android:text="Not registered?"
            app:layout_constraintBottom_toBottomOf="parent"
-           app:layout_constraintHorizontal_bias=".3"
            app:layout_constraintLeft_toLeftOf="parent"
            app:layout_constraintRight_toRightOf="parent"
            app:layout_constraintTop_toTopOf="parent"
@@ -96,11 +96,10 @@
            android:text="Create an account"
            android:textColor="#248908"
            app:layout_constraintBottom_toBottomOf="parent"
-           app:layout_constraintHorizontal_bias=".68"
            app:layout_constraintLeft_toLeftOf="parent"
            app:layout_constraintRight_toRightOf="parent"
            app:layout_constraintTop_toTopOf="parent"
-           app:layout_constraintVertical_bias=".8" />
+           app:layout_constraintVertical_bias=".85" />
 
 
 

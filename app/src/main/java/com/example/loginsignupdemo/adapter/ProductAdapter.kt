@@ -1,15 +1,14 @@
-package com.example.loginsignupdemo
+package com.example.loginsignupdemo.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import androidx.cardview.widget.CardView
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.loginsignupdemo.ProductList
+import com.example.loginsignupdemo.R
 
 class productAdapter(var productList : List<ProductList>, private val onItemClick: (ProductList) -> Unit):
     RecyclerView.Adapter<productAdapter.productViewHolder>() {
@@ -19,7 +18,7 @@ class productAdapter(var productList : List<ProductList>, private val onItemClic
         val productName: TextView = itemView.findViewById(R.id.textViewProductName)
         val productPrice:TextView =itemView.findViewById(R.id.textViewProductPrice)
 
-        fun Bind(product:ProductList){
+        fun Bind(product: ProductList){
             with(itemView) {
                 if (imageView != null) {
                     Glide.with(context).load(product.ProductImageUrl).into(imageView)

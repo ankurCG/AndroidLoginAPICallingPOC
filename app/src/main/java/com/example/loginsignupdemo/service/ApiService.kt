@@ -1,4 +1,5 @@
-package com.example.loginsignupdemo
+package com.example.loginsignupdemo.service
+import com.example.loginsignupdemo.ProductList
 import retrofit2.Call
 import retrofit2.http.GET
 

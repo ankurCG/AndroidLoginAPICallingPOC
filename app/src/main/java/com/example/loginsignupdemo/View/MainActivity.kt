@@ -1,10 +1,13 @@
-package com.example.loginsignupdemo
+package com.example.loginsignupdemo.View
 
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
 import androidx.fragment.app.Fragment
+import com.example.loginsignupdemo.utils.DataBaseHelper
+import com.example.loginsignupdemo.fragment.LoginFragment
+import com.example.loginsignupdemo.R
 
 class MainActivity : AppCompatActivity() {
 

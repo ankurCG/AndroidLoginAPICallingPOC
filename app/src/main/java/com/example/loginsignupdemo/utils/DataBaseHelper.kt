@@ -1,4 +1,4 @@
-package com.example.loginsignupdemo
+package com.example.loginsignupdemo.utils
 
 import android.annotation.SuppressLint
 import android.content.ContentValues
@@ -6,6 +6,7 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import com.example.loginsignupdemo.data.UserData
 
 class DataBaseHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
     override fun onCreate(db: SQLiteDatabase?) {
